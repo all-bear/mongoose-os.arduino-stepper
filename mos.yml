@@ -1,0 +1,20 @@
+author: Oleh Biriukov
+description: Arduino Stepper library
+type: lib
+version: 1.0
+
+sources:
+  - src
+includes:
+  - include
+build_vars:
+
+libs:
+  - location: https://github.com/mongoose-os-libs/arduino-compat
+
+tags:
+  - arduino
+  - stepper
+  - docs:arduino:Stepper
+
+manifest_version: 2017-09-29
