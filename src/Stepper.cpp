@@ -181,7 +181,7 @@ void Stepper::setSpeed(long whatSpeed)
  * Moves the motor steps_to_move steps.  If the number is negative,
  * the motor moves in the reverse direction. If hold is false then ther is will be 0 on all pins after movement
  */
-void Stepper::step(int steps_to_move, bool hold = true)
+void Stepper::step(int steps_to_move)
 {
   int steps_left = abs(steps_to_move);  // how many steps to take
 
@@ -224,25 +224,36 @@ void Stepper::step(int steps_to_move, bool hold = true)
         stepMotor(this->step_number % 4);
     }
   }
+}
 
-  if (!hold) {
-    if (this->pin_count == 2) {
-      digitalWrite(motor_pin_1, LOW);
-      digitalWrite(motor_pin_2, LOW);
-    }
-    if (this->pin_count == 4) {
-      digitalWrite(motor_pin_1, LOW);
-      digitalWrite(motor_pin_2, LOW);
-      digitalWrite(motor_pin_3, LOW);
-      digitalWrite(motor_pin_4, LOW);
-    }
-    if (this->pin_count == 5) {
-      digitalWrite(motor_pin_1, LOW);
-      digitalWrite(motor_pin_2, LOW);
-      digitalWrite(motor_pin_3, LOW);
-      digitalWrite(motor_pin_4, LOW);
-      digitalWrite(motor_pin_5, LOW);
-    }
+
+/*
+ * Moves the motor steps_to_move steps.  If the number is negative,
+ * the motor moves in the reverse direction. If hold is false then ther is will be 0 on all pins after movement
+ * After movement all motors pins will be on 0 level
+ */
+void Stepper::stepAndRelease(int steps_to_move)
+{
+  this->step(steps_to_move);
+
+  if (this->pin_count == 2) {
+    digitalWrite(motor_pin_1, LOW);
+    digitalWrite(motor_pin_2, LOW);
+  }
+  
+  if (this->pin_count == 4) {
+    digitalWrite(motor_pin_1, LOW);
+    digitalWrite(motor_pin_2, LOW);
+    digitalWrite(motor_pin_3, LOW);
+    digitalWrite(motor_pin_4, LOW);
+  }
+
+  if (this->pin_count == 5) {
+    digitalWrite(motor_pin_1, LOW);
+    digitalWrite(motor_pin_2, LOW);
+    digitalWrite(motor_pin_3, LOW);
+    digitalWrite(motor_pin_4, LOW);
+    digitalWrite(motor_pin_5, LOW);
   }
 }
 

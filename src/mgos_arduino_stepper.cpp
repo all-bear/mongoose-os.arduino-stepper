@@ -10,8 +10,14 @@ void mgos_Stepper_setSpeed(Stepper *stepper, int speed) {
     stepper->setSpeed(speed);
 }
 
-void mgos_Stepper_step(Stepper *stepper, int number_of_steps, bool hold = true) {
+void mgos_Stepper_step(Stepper *stepper, int number_of_steps) {
     if (stepper == nullptr) return;
 
-    stepper->step(number_of_steps, hold);
+    stepper->step(number_of_steps);
+}
+
+void mgos_Stepper_step_and_release(Stepper *stepper, int number_of_steps) {
+    if (stepper == nullptr) return;
+
+    stepper->stepAndRelease(number_of_steps);
 }

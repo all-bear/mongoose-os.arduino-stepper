@@ -2,4 +2,4 @@
 
 This library provides an Arduino compatibility layer for `Stepper` library.
 
-Only on change is that `step` function have additional parameter `hold` (true by default), if hold is false then all pins will have 0 level after end of movement.
+Only on change is that there is addition function `stepAndRelease` which behave same as `step` but it will put all motor pins to 0 level after movement.
