@@ -1,7 +1,7 @@
 let Stepper = {
-    _create_2_pins: ffi('void *mgos_Stepper_create(int, int, int)'),
-    _create_4_pins: ffi('void *mgos_Stepper_create(int, int, int, int, int)'),
-    _create_5_pins: ffi('void *mgos_Stepper_create(int, int, int, int, int, int)'),
+    _create_2_pins: ffi('void *mgos_Stepper_create_2_pins(int, int, int)'),
+    _create_4_pins: ffi('void *mgos_Stepper_create_4_pins(int, int, int, int, int)'),
+    _create_5_pins: ffi('void *mgos_Stepper_create_5_pins(int, int, int, int, int, int)'),
     _setSpeed: ffi('void mgos_Stepper_setSpeed(void *, int)'),
     _step: ffi('void mgos_Stepper_step(void *, int)'),
     _stepAndRelease: ffi('void mgos_Stepper_step_and_release(void *, int)'),
