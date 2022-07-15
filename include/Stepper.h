@@ -94,7 +94,7 @@ class Stepper {
     void setSpeed(long whatSpeed);
 
     // mover method:
-    void step(int number_of_steps);
+    void step(int number_of_steps, bool hold = true);
 
     int version(void);
 
